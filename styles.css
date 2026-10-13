@@ -1,0 +1,277 @@
+:root {
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --surface-alt: #16223a;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent-strong: #0ea5e9;
+  --border: #2b3a55;
+  --radius: 12px;
+  --max: 1080px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  background: var(--bg);
+  color: var(--text);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+code {
+  background: var(--surface-alt);
+  padding: 0.1rem 0.35rem;
+  border-radius: 6px;
+  font-size: 0.95em;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1.25rem;
+  background: rgba(15, 23, 42, 0.92);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(6px);
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text);
+  letter-spacing: 0.01em;
+}
+
+.site-nav {
+  display: flex;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+}
+
+.site-nav a {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--accent);
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 0.35rem;
+}
+
+.nav-toggle-label span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+}
+
+.hero {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 4rem 1.25rem 3rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 6vw, 3.25rem);
+  line-height: 1.15;
+  margin: 0 0 1rem;
+}
+
+.hero p {
+  max-width: 42rem;
+  margin: 0 auto 1.75rem;
+  color: var(--muted);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: var(--accent-strong);
+  color: #062033;
+  font-weight: 600;
+  border-radius: 999px;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  background: var(--accent);
+  transform: translateY(-1px);
+}
+
+.section {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 3rem 1.25rem;
+}
+
+.section.alt {
+  max-width: none;
+  background: var(--surface-alt);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.section.alt > * {
+  max-width: var(--max);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section h2 {
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
+  margin: 0 0 1.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.15rem;
+  grid-template-columns: 1fr;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+}
+
+.card h3 {
+  margin: 0 0 0.55rem;
+  font-size: 1.15rem;
+  color: var(--accent);
+}
+
+.card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.note {
+  margin-top: 1.25rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.rules {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: var(--muted);
+}
+
+.rules li {
+  margin-bottom: 0.65rem;
+}
+
+.site-footer {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.site-footer .muted {
+  opacity: 0.75;
+  font-size: 0.85rem;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid.two {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid.three {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .grid.two {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid.three {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .site-header {
+    padding: 1rem 2rem;
+  }
+
+  .hero {
+    padding: 5.5rem 2rem 4rem;
+  }
+
+  .section {
+    padding: 3.75rem 2rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .nav-toggle-label {
+    display: flex;
+  }
+
+  .site-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    display: none;
+  }
+
+  .site-nav a {
+    padding: 0.9rem 1.25rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .nav-toggle:checked ~ .site-nav {
+    display: flex;
+  }
+}
